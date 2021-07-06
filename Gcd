@@ -1,0 +1,23 @@
+gcd(a , b) = gcd(a -b , b)
+
+
+
+int gcd(int a, int b){
+  if(a == 0) return b;
+  return gcd( b%a , a);
+
+}
+
+
+16 24
+      ______
+   16 )  24 
+        -16
+        ----_____
+          8 ) 16 
+             -16
+             ---___
+              0) 8
+              ans = 8;
+             
+        
