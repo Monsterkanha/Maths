@@ -1,0 +1,20 @@
+Important point if reverse result is overflow then return zero. Don't use long long.
+Here, We will check before multiplying 
+int help(int n){
+    int  rev = 0;
+    while(n){
+        int dig = n%10;
+        if(rev > INT_MAX/10 || (rev == INT_MAX && dig > INT_MAX%10))  return 0;              // This condition is important if value is greater or if equal then check last digit.
+        rev = rev*10 + dig;
+        n/=10;
+    }
+    
+    return rev;
+}
+
+
+int Solution::reverse(int A) {
+    // if(A > INT_MAX || A < INT_MIN)  return 0;
+    if(A < 0) return -1*(help(-A));
+    return help(A);
+}
