@@ -1,0 +1,21 @@
+1 -> A
+2 -> B
+3 -> C
+...
+26 -> Z
+27 -> AA
+28 -> AB 
+Convert integer to string .
+
+No. is =>   (26^a)a1 + (26^a-1)an ..... an.
+Access last digit by modulo with 26 and move to left by dividing with 26.
+
+
+A = (A - 1)/26 is important because for case. 
+A = 52 so answer is AZ so we can't blindly divide put -1 also.
+string ans = "";
+while(A){
+    ans = (char)((A-1)%26 + 'A') + ans;
+    A = (A-1)/26;
+}
+return ans;
